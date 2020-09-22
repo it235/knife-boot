@@ -1,0 +1,47 @@
+server:
+  port: 6010
+spring:
+  application:
+    name: knife-order-server
+  cloud:
+    # Nacos配置
+    nacos:
+      config:
+        server-addr: nacos.it235.com:80
+        namespace: knife-boot-dev
+        file-extension: yaml
+        enabled: true
+      discovery:
+        server-addr: nacos.it235.com:80
+        namespace: knife-boot-dev
+        enabled: true
+
+feign:
+  httpclient:
+    enabled: false
+  okhttp:
+    enabled: true
+  hystrix:
+    enabled: true   # feign 熔断机制是否开启
+    #支持压缩的mime types
+  compression:  # 请求压缩
+    request:
+      enabled: true
+      mime-types: text/xml,application/xml,application/json
+      min-request-size: 2048
+    response:  # 响应压缩
+      enabled: true
+  client:
+    config:
+      default:
+        # 订单服务执行熔断时间为10秒
+        connectTimeout: 8000
+        readTimeout: 8000
+# 该配置暂时未生效，由feign.client.config代替
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 15000

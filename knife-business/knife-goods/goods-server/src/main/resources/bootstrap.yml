@@ -1,0 +1,17 @@
+server:
+  port: 6020
+spring:
+  application:
+    name: knife-goods-server
+  cloud:
+    # Nacos配置
+    nacos:
+      config:
+        server-addr: nacos.it235.com:80
+        namespace: knife-boot-dev
+        file-extension: yaml
+        enabled: true
+      discovery:
+        server-addr: nacos.it235.com:80
+        namespace: knife-boot-dev
+        enabled: true

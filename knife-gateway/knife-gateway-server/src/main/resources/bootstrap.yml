@@ -1,0 +1,105 @@
+knife:
+  env: dev
+  version: 1.0.0
+server:
+  port: 9010
+spring:
+  application:
+    name: knife-gateway
+  cloud:
+    # Nacos配置
+    nacos:
+      config:
+        server-addr: nacos.it235.com:80
+        namespace: knife-boot-dev
+        file-extension: yaml
+        enabled: true
+      discovery:
+        server-addr: nacos.it235.com:80
+        namespace: knife-boot-dev
+        enabled: true
+    # 网关配置
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+      - id: order
+        uri: 'lb://knife-order-server'
+        predicates:
+          - Path= /order/**
+        filters:
+          - StripPrefix=1
+      - id: goods
+        uri: 'lb://knife-goods-server'
+        predicates:
+          - Path= /goods/**
+        filters:
+          - StripPrefix=1
+      default-filters:
+        - name: Hystrix
+          args:
+            name: fallbackcmd
+            fallbackUri: 'forward:/fallback'
+      # 跨域配置
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "https://docs.spring.io"
+            allowedMethods:
+              - GET
+            allowHeaders:
+              - Content-Type
+
+# 网关执行熔断时间为10秒
+hystrix:
+  command:
+    fallbackcmd:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
+feign:
+  httpclient:
+    enabled: false
+  okhttp:
+    enabled: true
+  hystrix:
+    enabled: true   # feign 熔断机制是否开启
+    #支持压缩的mime types
+  compression:  # 请求压缩
+    request:
+      enabled: true
+      mime-types: text/xml,application/xml,application/json
+      min-request-size: 2048
+    response:  # 响应压缩
+      enabled: true
+
+skip:
+  token:
+    url:
+      - /error
+      - /actuator/**
+      - /gate/**
+      - /static/**
+      - /anno/**
+      - /**/anno/**
+      - /**/swagger-ui.html
+      - /**/doc.html
+      - /**/webjars/**
+      - /**/v2/api-docs/**
+      - /**/v2/api-docs-ext/**
+      - /**/swagger-resources/**
+      - /ds/**
+
+# 聚合文档配置
+swagger:
+  document:
+    resources:
+      - name: 授权模块
+        url: /knife-oauth
+      - name: 开发者模块
+        url: /knife-devops
+      - name: 订单模块
+        url: /knife-system

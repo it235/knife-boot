@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>knife-business</artifactId>
+        <groupId>com.it235.knife</groupId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.it235.knife</groupId>
+    <artifactId>knife-goods</artifactId>
+    <packaging>pom</packaging>
+
+
+    <!--内部模块聚合依赖-->
+    <dependencyManagement>
+
+        <dependencies>
+            <dependency>
+                <groupId>com.it235.knife</groupId>
+                <artifactId>goods-biz</artifactId>
+                <version>${knife-goods.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.it235.knife</groupId>
+                <artifactId>goods-controller</artifactId>
+                <version>${knife-goods.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.it235.knife</groupId>
+                <artifactId>goods-server</artifactId>
+                <version>${knife-goods.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <modules>
+        <module>goods-biz</module>
+        <module>goods-controller</module>
+        <module>goods-server</module>
+    </modules>
+
+
+</project>
