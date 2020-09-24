@@ -32,6 +32,14 @@ public class Result<T> implements Serializable {
     @ApiModelProperty("扩展数据，特殊情况可使用")
     private Map<Object, Object> extra;
 
+    /**
+     * 判断当前对象是否为成功
+     * @return true表示成功，false表示失败
+     */
+    public boolean isSuccess(){
+        return this.code == ResultCode.OK.getCode();
+    }
+
     public Result(int code, String msg, T data) {
         this.code = code;
         this.msg = msg;

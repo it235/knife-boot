@@ -38,6 +38,10 @@
             <groupId>com.it235.knife</groupId>
             <artifactId>knife-spring</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.it235.knife</groupId>
+            <artifactId>knife-log</artifactId>
+        </dependency>
 
     </dependencies>
 

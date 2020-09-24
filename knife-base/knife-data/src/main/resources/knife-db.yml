@@ -1,0 +1,51 @@
+spring:
+  datasource:
+    url: jdbc:mysql://${knife.db.host}:${knife.db.port}/${knife.db.name}?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&useSSL=false&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&rewriteBatchedStatements=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: ${knife.db.username}
+    password: ${knife.db.password}
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      initial-size: 10  # 初始化大小
+      min-idle: 50  # 最小
+      max-active: 500  # 最大
+      max-wait: 60000  # 配置获取连接等待超时的时间
+      time-between-eviction-runs-millis: 60000  # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      min-evictable-idle-time-millis: 300000  # 指定一个空闲连接最少空闲多久后可被清除，单位是毫秒
+      validationQuery: select 'x'
+      test-while-idle: true  # 当连接空闲时，是否执行连接测试
+      test-on-borrow: false  # 当从连接池借用连接时，是否测试该连接
+      test-on-return: false  # 在连接归还到连接池时是否测试该连接
+      filters: config,wall,stat  # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+      poolPreparedStatements: true # 打开PSCache，并且指定每个连接上PSCache的大小
+      maxPoolPreparedStatementPerConnectionSize: 20
+      maxOpenPreparedStatements: 20
+
+      # druid web config
+      web-stat-filter:
+        enabled: true
+        url-pattern: /*
+        exclusions: "*.js , *.gif ,*.jpg ,*.png ,*.css ,*.ico , /druid/*"
+        session-stat-max-count: 1000
+        profile-enable: true
+        session-stat-enable: false
+      stat-view-servlet:
+        enabled: true
+        url-pattern: /druid/*
+        reset-enable: true
+        login-username: knifeboot
+        login-password: knifeboot
+
+# mybatis-plus配置
+mybatis-plus:
+  configuration:
+    #开启驼峰命名法
+    map-underscore-to-camel-case: true
+    # Mapper.xml路径，注意pom.xml中需要开启xml文件的编译
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath*:com/it235/knife/**/mapper/xml/*Mapper.xml
+  # xml中alias的匹配
+  type-aliases-package: com.it235.knife.**.entity
+  # 图标关闭
+  global-config:
+    banner: false

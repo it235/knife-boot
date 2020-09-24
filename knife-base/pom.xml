@@ -17,6 +17,9 @@
         <module>knife-common</module>
         <module>knife-core</module>
         <module>knife-spring</module>
+        <module>knife-data</module>
+        <module>knife-dependencies</module>
+        <module>knife-log</module>
     </modules>
 
 

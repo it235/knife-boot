@@ -4,4 +4,4 @@ ${AnsiColor.BRIGHT_CYAN}| ' /| '_ \| | |_ / _ \  ${AnsiColor.BLUE} |  _ \ / _ \ 
 ${AnsiColor.BRIGHT_CYAN}| . \| | | | |  _|  __/  ${AnsiColor.BLUE} | |_) | (_) | (_) | |_
 ${AnsiColor.BRIGHT_CYAN}|_|\_\_| |_|_|_|  \___|  ${AnsiColor.BLUE} |____/ \___/ \___/ \__|
 
-${AnsiColor.BLUE}:: Knife-Boot :: ${spring.application.name}:${AnsiColor.RED}${knife.env}${AnsiColor.BLUE} :: Running SpringBoot ${spring-boot.version} :: ${AnsiColor.BRIGHT_BLACK}
+${AnsiColor.BLUE}:: Knife-Boot :: @project.name@:${AnsiColor.RED}${knife.env}${AnsiColor.BLUE} :: Running SpringBoot ${spring-boot.version} :: ${AnsiColor.BRIGHT_BLACK}

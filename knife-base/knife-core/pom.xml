@@ -3,7 +3,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>knife-inner-support</artifactId>
+        <artifactId>knife-base</artifactId>
         <groupId>com.it235.knife</groupId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
@@ -12,14 +12,9 @@
     <version>${knife-core.version}</version>
     <artifactId>knife-core</artifactId>
     <name>${project.artifactId}</name>
-    <description>核心功能支持，偏向于base和http基础类</description>
+    <description>核心功能支持，偏向于base和http基础类（不包含servlet），servlet相关交由knife-spring处理</description>
 
     <dependencies>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
-
         <dependency>
             <groupId>com.it235.knife</groupId>
             <artifactId>knife-common</artifactId>
@@ -27,6 +22,10 @@
         <dependency>
             <groupId>io.swagger</groupId>
             <artifactId>swagger-annotations</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
         </dependency>
         <!-- 暂时用不到，不启用
         <dependency>
@@ -41,6 +40,11 @@
             <groupId>io.springfox</groupId>
             <artifactId>springfox-core</artifactId>
         </dependency>-->
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

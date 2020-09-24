@@ -15,3 +15,16 @@ spring:
         server-addr: nacos.it235.com:80
         namespace: knife-boot-dev
         enabled: true
+  profiles:
+    active: dev
+knife:
+  db:
+    host: 192.168.1.7
+    port: 3306
+    name: knife-boot
+    username: knife
+    password: knife235
+  log:
+    enable: true
+    # 默认db，可选kafka、local
+    logType: 'db'

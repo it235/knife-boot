@@ -1,0 +1,14 @@
+management.health.elasticsearch.enabled: false
+spring:
+  elasticsearch:
+    rest:
+      uris: ["tf-es.tifang.online:80"]
+  application:
+    name: 'abv'
+
+# es配置，没有用户名密码可置位空
+elasticsearch:
+  config:
+    hostlist:
+        - tf-es.tifang.online:80
+        - tf-es.tifang.online:90

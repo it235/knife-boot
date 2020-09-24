@@ -17,6 +17,11 @@
             <groupId>com.it235.knife</groupId>
             <artifactId>order-api</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.it235.knife</groupId>
+            <artifactId>knife-data</artifactId>
+        </dependency>
+
     </dependencies>
 
 </project>

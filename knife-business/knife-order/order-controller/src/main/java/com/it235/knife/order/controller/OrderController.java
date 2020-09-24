@@ -1,5 +1,7 @@
 package com.it235.knife.order.controller;
 
+import com.it235.knife.core.http.Result;
+import com.it235.knife.goods.dto.GoodsDTO;
 import com.it235.knife.service.OrderService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -25,7 +27,8 @@ public class OrderController {
 
     @ApiOperation(value = "根据订单编号查询订单信息")
     @GetMapping("{orderNumber}")
-    public String get(@PathVariable String orderNumber){
-        return "订单1：" + orderService.get("20200100101");
+    public Result<GoodsDTO> get(@PathVariable String orderNumber){
+        GoodsDTO goodsDTO = orderService.get("20200100101");
+        return Result.ofSuccess(goodsDTO);
     }
 }

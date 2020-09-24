@@ -18,8 +18,8 @@ public enum ResultCode implements IResultCode{
     SERVER_HYSTRIX(999, "服务器繁忙，请稍后重试"),
     FAILURE(1000, "业务异常");
 
-    final int code;
-    final String message;
+    private final int code;
+    private final String message;
 
     public int getCode() {
         return this.code;
