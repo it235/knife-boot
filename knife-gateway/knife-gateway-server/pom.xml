@@ -100,6 +100,11 @@
             <groupId>com.it235.knife</groupId>
             <artifactId>knife-core</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.it235.knife</groupId>
+            <artifactId>knife-log</artifactId>
+        </dependency>
     </dependencies>
 <!--
 

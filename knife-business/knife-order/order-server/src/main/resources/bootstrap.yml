@@ -35,7 +35,7 @@ feign:
   okhttp:
     enabled: true
   hystrix:
-    enabled: true   # feign 熔断机制是否开启
+    enabled: true   # api 熔断机制是否开启
     #支持压缩的mime types
   compression:  # 请求压缩
     request:
@@ -50,7 +50,7 @@ feign:
         # 订单服务执行熔断时间为10秒
         connectTimeout: 8000
         readTimeout: 8000
-# 该配置暂时未生效，由feign.client.config代替
+# 该配置暂时未生效，由feign.api.config代替
 hystrix:
   command:
     default:

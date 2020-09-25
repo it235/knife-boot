@@ -87,6 +87,7 @@
         <objenesis.version>2.6</objenesis.version>
         <jgroups.version>3.6.15.Final</jgroups.version>
         <JustAuth.version>1.13.2</JustAuth.version>
+        <skywalking.version>8.1.0</skywalking.version>
 
         <elasticsearch.version>7.6.2</elasticsearch.version>
         <!--Maven相关插件-->
@@ -477,6 +478,17 @@
                 <groupId>me.zhyd.oauth</groupId>
                 <artifactId>JustAuth</artifactId>
                 <version>${JustAuth.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.skywalking</groupId>
+                <artifactId>apm-toolkit-trace</artifactId>
+                <version>${skywalking.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.skywalking</groupId>
+                <artifactId>apm-toolkit-logback-1.x</artifactId>
+                <version>${skywalking.version}</version>
             </dependency>
 
             <dependency>

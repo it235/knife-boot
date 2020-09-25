@@ -9,7 +9,7 @@ public interface TenantConstant {
     /**
      * 当租户id以header的形式传进来时的属性名
      */
-    String TENANT_ID_HEADER_PROP = "header-tenant";
+    String TENANT_ID_HEADER_PROP = "x-tenant-header";
 
     /**
      * 当租户id以param参数传进来时的属性名

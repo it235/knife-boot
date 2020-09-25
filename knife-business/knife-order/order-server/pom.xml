@@ -59,7 +59,7 @@
 
         <dependency>
             <groupId>com.it235.knife</groupId>
-            <artifactId>order-controller</artifactId>
+            <artifactId>order-biz</artifactId>
         </dependency>
     </dependencies>
 

@@ -26,12 +26,6 @@
 
             <dependency>
                 <groupId>com.it235.knife</groupId>
-                <artifactId>goods-controller</artifactId>
-                <version>${knife-goods.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.it235.knife</groupId>
                 <artifactId>goods-server</artifactId>
                 <version>${knife-goods.version}</version>
             </dependency>
@@ -40,7 +34,6 @@
 
     <modules>
         <module>goods-biz</module>
-        <module>goods-controller</module>
         <module>goods-server</module>
     </modules>
 

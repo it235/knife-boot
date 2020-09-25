@@ -12,7 +12,6 @@
     <modules>
         <module>knife-gateway</module>
         <module>knife-business</module>
-        <module>knife-api</module>
         <module>knife-dashboard</module>
         <module>knife-integration</module>
         <module>knife-base</module>
@@ -130,6 +129,18 @@
                 <artifactId>knife-elasticsearch</artifactId>
                 <version>${knife-elasticsearch.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>com.it235.knife</groupId>
+                <artifactId>goods-api</artifactId>
+                <version>${knife-goods-api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.it235.knife</groupId>
+                <artifactId>order-api</artifactId>
+                <version>${knife-order-api.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 

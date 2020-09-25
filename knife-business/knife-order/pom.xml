@@ -39,7 +39,6 @@
 
     <modules>
         <module>order-biz</module>
-        <module>order-controller</module>
         <module>order-server</module>
     </modules>
 

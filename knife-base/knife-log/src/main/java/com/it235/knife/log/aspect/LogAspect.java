@@ -7,6 +7,7 @@ import cn.hutool.core.util.URLUtil;
 import cn.hutool.extra.servlet.ServletUtil;
 import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.it235.knife.common.constants.GlobalConstant;
 import com.it235.knife.common.tl.TenantTreadLocal;
 import com.it235.knife.core.http.Result;
 import com.it235.knife.log.annotation.Log;
@@ -103,15 +104,16 @@ public class LogAspect {
                 opration.setParams(this.getText(strArgs));
             }
 
-            opration.setTraceId(MDC.get("trace"));
+            //该链路ID值初次在网关TraceFilter中设置
+            opration.setTraceId(MDC.get(GlobalConstant.LOG_TRACE_ID));
             if (request != null) {
                 opration.setReqIp(ServletUtil.getClientIP(request, new String[0]));
                 opration.setReqUri(URLUtil.getPath(request.getRequestURI()));
                 opration.setHttpMethod(request.getMethod());
-                opration.setUa(StrUtil.sub(request.getHeader("user-agent"), 0, 500));
+                opration.setUa(StrUtil.sub(request.getHeader(GlobalConstant.USER_AGENT_HEADER), 0, 500));
                 opration.setTenantId(TenantTreadLocal.getTenantId());
                 if (StrUtil.isEmpty(opration.getTraceId())) {
-                    opration.setTraceId(request.getHeader("x-trace-header"));
+                    opration.setTraceId(request.getHeader(GlobalConstant.TRACE_ID_HEADER));
                 }
             }
             //将信息存起来，在after之后使用

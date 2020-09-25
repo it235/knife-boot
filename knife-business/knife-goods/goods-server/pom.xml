@@ -37,7 +37,7 @@
 
         <dependency>
             <groupId>com.it235.knife</groupId>
-            <artifactId>goods-controller</artifactId>
+            <artifactId>goods-biz</artifactId>
         </dependency>
     </dependencies>
 

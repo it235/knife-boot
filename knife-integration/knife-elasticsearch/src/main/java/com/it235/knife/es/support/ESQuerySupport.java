@@ -458,7 +458,7 @@ public class ESQuerySupport {
 //        sourceBuilder.query(matchQueryBuilder);
 //
 //
-//        SearchResponse search = client.search(request, RequestOptions.DEFAULT);
+//        SearchResponse search = api.search(request, RequestOptions.DEFAULT);
 //        SearchHit[] hits = search.getHits().getHits();
 //        for (SearchHit hit : hits){
 //            Map<String, Object> sourceAsMap = hit.getSourceAsMap();
@@ -472,7 +472,7 @@ public class ESQuerySupport {
 
 //                        new HttpHost("localhost", 9201, "http")));
 //        GetRequest getRequest = new GetRequest("subjects_tags_01");
-//        GetResponse getResponse = client.get(getRequest, RequestOptions.DEFAULT);
+//        GetResponse getResponse = api.get(getRequest, RequestOptions.DEFAULT);
 //        // /ecommerce/product/1
 //        if (getResponse.isExists()) {
 //            String index = getResponse.getIndex();
@@ -517,7 +517,7 @@ public class ESQuerySupport {
 //
 //
 //            sourceBuilder.query(boolQueryBuilder);
-//            SearchResponse search = client.search(request, RequestOptions.DEFAULT);
+//            SearchResponse search = api.search(request, RequestOptions.DEFAULT);
 //            // 处理查询出数据
 //            SearchHits hits = search.getHits();
 //

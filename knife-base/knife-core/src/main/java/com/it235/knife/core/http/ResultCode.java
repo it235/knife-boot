@@ -16,7 +16,9 @@ public enum ResultCode implements IResultCode{
     REQUEST_REJECT(403, "请求被拒绝"),
     INTERNAL_SERVER_ERROR(500, "服务器异常"),
     SERVER_HYSTRIX(999, "服务器繁忙，请稍后重试"),
-    FAILURE(1000, "业务异常");
+    FAILURE(1000, "业务异常"),
+    REMOTE_SERVICE_UNAVAILABLE(1100, "远程服务异常"),
+    ;
 
     private final int code;
     private final String message;

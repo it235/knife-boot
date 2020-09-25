@@ -1,6 +1,10 @@
 knife:
   env: dev
   version: 1.0.0
+  log:
+    enable: true
+    # 默认db，可选kafka、local
+    logType: 'db'
 server:
   port: 9010
 spring:
@@ -51,6 +55,8 @@ spring:
               - GET
             allowHeaders:
               - Content-Type
+  profiles:
+    active: dev
 
 # 网关执行熔断时间为10秒
 hystrix:
@@ -66,7 +72,7 @@ feign:
   okhttp:
     enabled: true
   hystrix:
-    enabled: true   # feign 熔断机制是否开启
+    enabled: true   # api 熔断机制是否开启
     #支持压缩的mime types
   compression:  # 请求压缩
     request:
@@ -93,13 +99,13 @@ skip:
       - /**/swagger-resources/**
       - /ds/**
 
+
 # 聚合文档配置
-swagger:
-  document:
-    resources:
-      - name: 授权模块
-        url: /knife-oauth
-      - name: 开发者模块
-        url: /knife-devops
-      - name: 订单模块
-        url: /knife-system
+  #MateRequestProperties属性配置
+  request:
+    #traceId跟踪
+    trace: true
+    #获取IP
+    ip: true
+    #黑名单增强模式启动
+    enhance: true

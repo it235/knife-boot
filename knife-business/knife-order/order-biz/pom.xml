@@ -14,6 +14,23 @@
     <description>订单逻辑层</description>
 
     <dependencies>
+        <!--WEB容器-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
         <dependency>
             <groupId>com.it235.knife</groupId>
             <artifactId>order-api</artifactId>
@@ -21,6 +38,15 @@
         <dependency>
             <groupId>com.it235.knife</groupId>
             <artifactId>goods-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.it235.knife</groupId>
+            <artifactId>knife-log</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.it235.knife</groupId>
+            <artifactId>knife-spring</artifactId>
         </dependency>
     </dependencies>
 </project>

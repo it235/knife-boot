@@ -20,17 +20,29 @@
 
     <!-- 彩色日志格式 -->
     <property name="CONSOLE_LOG_PATTERN"
-              value="[${APP_NAME}:${ServerIP}:${ServerPort}] %clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(%level){blue} %clr(${PID}){magenta} %clr([%X{traceId}]){yellow} %clr([%thread]){orange} %clr(%logger){cyan} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"/>
+              value="[${APP_NAME}:${ServerIP}:${ServerPort}] %clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(%level){blue} %clr(${PID}){magenta} %clr([%X{traceId}] [%tid]){yellow} %clr([%thread]){orange} %clr(%logger){cyan} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"/>
     <property name="CONSOLE_LOG_PATTERN_NO_COLOR"
-              value="[${APP_NAME}:${ServerIP}:${ServerPort}] %d{yyyy-MM-dd HH:mm:ss.SSS} %level ${PID} [%X{traceId}] [%thread] %logger %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"/>
+              value="[${APP_NAME}:${ServerIP}:${ServerPort}] %d{yyyy-MM-dd HH:mm:ss.SSS} %level ${PID} [%X{traceId} ] [%tid] [%thread] %logger %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"/>
 
     <!-- 控制台日志 -->
     <appender name="StdoutAppender" class="ch.qos.logback.core.ConsoleAppender">
         <withJansi>true</withJansi>
-        <encoder>
-            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+
+        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+            <layout class="org.apache.skywalking.apm.toolkit.log.logback.v1.x.TraceIdPatternLogbackLayout">
+                <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+            </layout>
             <charset>UTF-8</charset>
         </encoder>
+    </appender>
+
+
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="org.apache.skywalking.apm.toolkit.log.logback.v1.x.TraceIdPatternLogbackLayout">
+            <pattern>
+                %d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %tid - %msg%n
+            </pattern>
+        </layout>
     </appender>
     <!-- 按照每天生成常规日志文件 -->
     <appender name="FileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
@@ -99,6 +111,7 @@
         <discardingThreshold>0</discardingThreshold>
         <appender-ref ref="audit_log"/>
     </appender>
+
 <!--
     <logger name="com.it235.knife.core.log.util" level="debug" addtivity="false">
         <appender-ref ref="track_log_async"/>
