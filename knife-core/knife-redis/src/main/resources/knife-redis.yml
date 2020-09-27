@@ -1,0 +1,13 @@
+knife:
+  redis:
+    host: ${knife.redis.host}
+    password: ${knife.redis.password}
+    port: ${knife.redis.port}
+    databases: [0,1,2,3,4,5,6] # 使用的库
+    timeout: 60s
+    lettuce: # lettuce基于netty，线程安全，支持并发
+      pool:
+        max-active: 50
+        max-wait: -1ms
+        max-idle: 8
+        min-idle: 0

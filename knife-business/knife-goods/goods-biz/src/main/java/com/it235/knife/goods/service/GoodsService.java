@@ -2,7 +2,7 @@ package com.it235.knife.goods.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.it235.knife.core.http.Result;
+import com.it235.knife.common.http.Result;
 import com.it235.knife.goods.entity.Goods;
 
 import java.util.List;

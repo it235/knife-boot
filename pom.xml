@@ -14,7 +14,7 @@
         <module>knife-business</module>
         <module>knife-dashboard</module>
         <module>knife-integration</module>
-        <module>knife-base</module>
+        <module>knife-core</module>
         <module>knife-auth</module>
         <module>knife-devops</module>
     </modules>
@@ -54,8 +54,10 @@
         <knife-common.version>1.0.0-SNAPSHOT</knife-common.version>
         <knife-core.version>1.0.0-SNAPSHOT</knife-core.version>
         <knife-data.version>1.0.0-SNAPSHOT</knife-data.version>
+        <knife-redis.version>1.0.0-SNAPSHOT</knife-redis.version>
         <knife-log.version>1.0.0-SNAPSHOT</knife-log.version>
         <knife-spring.version>1.0.0-SNAPSHOT</knife-spring.version>
+        <knife-webflux.version>1.0.0-SNAPSHOT</knife-webflux.version>
 
         <!--第三方集成jar包的版本号-->
         <knife-elasticsearch.version>1.0.0-SNAPSHOT</knife-elasticsearch.version>
@@ -104,11 +106,6 @@
             </dependency>
             <dependency>
                 <groupId>com.it235.knife</groupId>
-                <artifactId>knife-core</artifactId>
-                <version>${knife-core.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.it235.knife</groupId>
                 <artifactId>knife-data</artifactId>
                 <version>${knife-data.version}</version>
             </dependency>
@@ -117,11 +114,21 @@
                 <artifactId>knife-log</artifactId>
                 <version>${knife-log.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.it235.knife</groupId>
+                <artifactId>knife-redis</artifactId>
+                <version>${knife-redis.version}</version>
+            </dependency>
 
             <dependency>
                 <groupId>com.it235.knife</groupId>
                 <artifactId>knife-spring</artifactId>
                 <version>${knife-spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.it235.knife</groupId>
+                <artifactId>knife-webflux</artifactId>
+                <version>${knife-webflux.version}</version>
             </dependency>
 
             <dependency>

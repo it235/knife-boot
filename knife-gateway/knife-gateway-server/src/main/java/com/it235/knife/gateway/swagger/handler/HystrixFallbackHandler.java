@@ -1,7 +1,7 @@
 package com.it235.knife.gateway.swagger.handler;
 
-import com.it235.knife.core.http.Result;
-import com.it235.knife.core.http.ResultCode;
+import com.it235.knife.common.http.Result;
+import com.it235.knife.common.http.ResultCode;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.support.ServerWebExchangeUtils;
 import org.springframework.http.HttpStatus;

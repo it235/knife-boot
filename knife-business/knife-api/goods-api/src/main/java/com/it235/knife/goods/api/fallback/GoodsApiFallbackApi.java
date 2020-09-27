@@ -1,7 +1,7 @@
 package com.it235.knife.goods.api.fallback;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.it235.knife.core.http.Result;
+import com.it235.knife.common.http.Result;
 import com.it235.knife.goods.api.GoodsFeignApi;
 import com.it235.knife.goods.dto.GoodsDTO;
 import org.springframework.stereotype.Component;

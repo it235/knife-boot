@@ -38,6 +38,10 @@
             <groupId>com.it235.knife</groupId>
             <artifactId>knife-data</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.it235.knife</groupId>
+            <artifactId>knife-redis</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>com.it235.knife</groupId>

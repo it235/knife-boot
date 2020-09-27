@@ -1,6 +1,6 @@
 package com.it235.knife.order.api;
 
-import com.it235.knife.core.http.Result;
+import com.it235.knife.common.http.Result;
 import com.it235.knife.order.api.fallback.OrderFeignApiFallback;
 import com.it235.knife.order.dto.OrderDTO;
 import org.springframework.cloud.openfeign.FeignClient;

@@ -1,6 +1,6 @@
 package com.it235.knife.order.api.fallback;
 
-import com.it235.knife.core.http.Result;
+import com.it235.knife.common.http.Result;
 import com.it235.knife.order.api.OrderFeignApi;
 import org.springframework.stereotype.Component;
 

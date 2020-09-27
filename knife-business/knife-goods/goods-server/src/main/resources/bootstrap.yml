@@ -28,3 +28,7 @@ knife:
     enable: true
     # 默认db，可选kafka、local
     logType: 'db'
+  redis:
+    host: localhost
+    port: 6379
+    password: knife

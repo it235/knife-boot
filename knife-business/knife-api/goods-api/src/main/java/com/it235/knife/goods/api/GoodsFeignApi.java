@@ -2,7 +2,7 @@ package com.it235.knife.goods.api;
 
 //import GoodsApiFallback;
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.it235.knife.core.http.Result;
+import com.it235.knife.common.http.Result;
 import com.it235.knife.goods.dto.GoodsDTO;
 import com.it235.knife.goods.api.fallback.GoodsApiFallbackApi;
 import org.springframework.cloud.openfeign.FeignClient;

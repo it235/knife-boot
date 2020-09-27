@@ -1,6 +1,6 @@
 package com.it235.knife.order.controller;
 
-import com.it235.knife.core.http.Result;
+import com.it235.knife.common.http.Result;
 import com.it235.knife.goods.dto.GoodsDTO;
 import com.it235.knife.order.api.OrderFeignApi;
 import com.it235.knife.service.OrderService;
